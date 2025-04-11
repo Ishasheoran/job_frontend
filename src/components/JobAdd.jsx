@@ -11,7 +11,7 @@ const AddJob=()=>{
     const [jobs, setJobs] = useState([]);
     const fetchJobs = async () => {
         try {
-          const res = await axios.get("http://localhost:8000/api/jobs");
+          const res = await axios.get("https://job-backend-82mk.onrender.com/api/jobs");
           setJobs(res.data);
         } catch (error) {
           console.error("Error fetching jobs:", error);
@@ -23,7 +23,7 @@ const AddJob=()=>{
       }, []);
     const handleDelete = async (id) => {
         try {
-          await axios.delete(`http://localhost:8000/api/jobs/${id}`);
+          await axios.delete(`https://job-backend-82mk.onrender.com/api/jobs/${id}`);
           setJobs(jobs.filter((job) => job._id !== id));
         } catch (error) {
           console.error("Error deleting job:", error);
@@ -42,7 +42,7 @@ const AddJob=()=>{
         };
     
         try {
-          await axios.post("http://localhost:8000/api/jobs", newJob);
+          await axios.post("https://job-backend-82mk.onrender.com/api/jobs", newJob);
           alert("Job added successfully!");
           
           // Optional: Reset form
