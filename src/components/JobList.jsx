@@ -76,7 +76,7 @@ const JobList = () => {
 
   const fetchJobs = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/jobs");
+      const res = await axios.get("https://job-backend-82mk.onrender.com/api/jobs");
       setJobs(res.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
@@ -85,7 +85,7 @@ const JobList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/jobs/${id}`);
+      await axios.delete(`https://job-backend-82mk.onrender.com/api/jobs/${id}`);
       setJobs(jobs.filter((job) => job._id !== id));
     } catch (error) {
       console.error("Error deleting job:", error);
@@ -94,7 +94,7 @@ const JobList = () => {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.put(`http://localhost:8000/api/jobs/${id}`, { status: newStatus });
+      await axios.put(`https://job-backend-82mk.onrender.com/api/jobs/${id}`, { status: newStatus });
       setJobs(jobs.map((job) =>
         job._id === id ? { ...job, status: newStatus } : job
       ));
